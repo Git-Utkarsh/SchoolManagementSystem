@@ -35,10 +35,10 @@ def add():
           cursor.execute(query)
           mycon.commit()
           l = [var_data_1,var_data_2,var_data_3,var_data_4,var_data_5,var_data_6,var_data_7,var_data_8,var_data_9,var_data_10]
-          print(l)
+          # print(l)
           tkinter.messagebox.showinfo('Project','Data Stored successfully !!!')
      except Exception as e:
-          print(e)
+          # print(e)
           tkinter.messagebox.showinfo('Project','Error Occured !!!')
      
 def retrive():
@@ -50,7 +50,7 @@ def retrive():
           if count==0:
                 tkinter.messagebox.showinfo('Project','No data found !')
           for i in range(len(data)):
-               print(data[i])
+               # print(data[i])
                s = ''
                for j in range(10):
                          s += info[j]+' '+ str(data[i][j])+'\n'
@@ -73,6 +73,8 @@ def delete():
 
 display = tkinter.Tk()
 display.title('Student Info')
+photo = PhotoImage(file = "school.png")
+display.iconphoto(False, photo)
 frame = tkinter.Frame(display)
 frame.pack()
 
