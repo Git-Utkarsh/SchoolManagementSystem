@@ -1,4 +1,4 @@
-import tkinter
+from tkinter import * 
 import mysql.connector as sqltor
 mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
 cursor = mycon.cursor()
@@ -58,9 +58,11 @@ def delete():
      var_data_11 = int(var_11entry.get())
      sql1 = "DELETE FROM data WHERE Reg_no='%s'"
      data1=(var_data_11,)
-     cursor.execute(sql1,data1)
-     mycon.commit()
-     tkinter.messagebox.showinfo('Project','[+] Deleted successfully')
+     result=tkinter.messagebox.askquestion('Project','Are you sure you want to delete ')
+     if result=='yes':
+          cursor.execute(sql1,data1)
+          mycon.commit()
+          tkinter.messagebox.showinfo('Project','Deleted successfully')
     except:
          tkinter.messagebox.showinfo('Project','Enter the Data to be deleted !')
 
@@ -127,6 +129,7 @@ for widget in f1.winfo_children():
 
 button1 = tkinter.Button(f1,text="Add",command = add)
 button1.grid(row = 11, column = 1,sticky='news',padx=10,pady=10)
+button1.configure(bg="green",fg="white",borderwidth=4)
 
 f2 = tkinter.LabelFrame(frame,text='Retrive Or Delete')
 f2.grid(row = 0,column =1,sticky = 'news',padx=20,pady=10)
@@ -141,6 +144,7 @@ button2.grid(row = 2, column = 0,sticky='news',padx=10,pady=10)
 
 button3 = tkinter.Button(f2,text="Delete",command = delete)
 button3.grid(row = 2, column = 1,sticky='news',padx=10,pady=10)
+button3.configure(bg="red",fg="white")
 
 display_label = tkinter.Label(f2,relief='raised',border=0,justify='left',anchor=tkinter.W)
 display_label.grid(row=3,column=0,columnspan=2)
