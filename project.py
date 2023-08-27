@@ -1,6 +1,3 @@
-
-#bapov75860@synclane.com
-#class12@project
 from tkinter import * 
 import mysql.connector as sqltor
 import tkinter.messagebox 
