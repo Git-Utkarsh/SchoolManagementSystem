@@ -6,7 +6,6 @@ mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="proj
 #mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="fDAg7Cj5AW",database="sql6642699")
 cursor = mycon.cursor()
 import tkinter.messagebox 
-
 import ctypes
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
