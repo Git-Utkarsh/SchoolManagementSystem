@@ -2,6 +2,7 @@ import tkinter
 import mysql.connector as sqltor
 mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
 cursor = mycon.cursor()
+import tkinter.messagebox 
 
 import ctypes
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
@@ -9,7 +10,6 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 l = []
 data = []
 info = ['Reg No. :-','Name :-','Class :-','Sec :-','D.O.B. :-','Mobile No. :-','Adhar No. :-','Address :-','Father Name. :-','Mother Name. :-']
-
 
 def add():
      var_data_1 = var_1entry.get()
@@ -26,43 +26,51 @@ def add():
      Mobile_no,Adhaar_No,Address,Father_Name,
      Mother_Name) VALUES({},'{}',{},'{}','{}',{},'{}','{}',
      '{}','{}')""".format(var_data_1,var_data_2,var_data_3,var_data_4,var_data_5,var_data_6,var_data_7,var_data_8,var_data_9,var_data_10)
-     cursor.execute(query)
-     mycon.commit()
-     l = [var_data_1,var_data_2,var_data_3,var_data_4,var_data_5,var_data_6,var_data_7,var_data_8,var_data_9,var_data_10]
-     print(l)
-     print("Entered data successfully ! ! !")   
+     try:
+          cursor.execute(query)
+          mycon.commit()
+          l = [var_data_1,var_data_2,var_data_3,var_data_4,var_data_5,var_data_6,var_data_7,var_data_8,var_data_9,var_data_10]
+          print(l)
+          tkinter.messagebox.showinfo('Project','Data Stored successfully !!!')
+     except Exception as e:
+          print(e)
+          tkinter.messagebox.showinfo('Project','Error Occured !!!')
      
 def retrive():
-     var_data_11 = int(var_11entry.get())
-     cursor.execute("SELECT * FROM data WHERE Reg_no='%s'",(var_data_11,))
-     data = cursor.fetchall()
-     count = cursor.rowcount
-     print("Total number of rows retrived in result:",count)
-     for i in range(len(data)):
-          print(data[i])
-          s = ''
-          for j in range(10):
-                    s += info[j]+' '+ str(data[i][j])+'\n'
-                    display_label.config(text=s)
-                    print(s)
+     try:
+          var_data_11 = int(var_11entry.get())
+          cursor.execute("SELECT * FROM data WHERE Reg_no='%s'",(var_data_11,))
+          data = cursor.fetchall()
+          count = cursor.rowcount
+          if count==0:
+                tkinter.messagebox.showinfo('Project','No data found !')
+          for i in range(len(data)):
+               print(data[i])
+               s = ''
+               for j in range(10):
+                         s += info[j]+' '+ str(data[i][j])+'\n'
+                         display_label.config(text=s)
+     except:
+          tkinter.messagebox.showinfo('Project','Enter the Data to be Retrived !')
                
 def delete():
+    try:
      var_data_11 = int(var_11entry.get())
      sql1 = "DELETE FROM data WHERE Reg_no='%s'"
      data1=(var_data_11,)
      cursor.execute(sql1,data1)
      mycon.commit()
-     print("Row Affected:",cursor.rowcount)
+     tkinter.messagebox.showinfo('Project','[+] Deleted successfully')
+    except:
+         tkinter.messagebox.showinfo('Project','Enter the Data to be deleted !')
 
 display = tkinter.Tk()
 display.title('Student Info')
-
 frame = tkinter.Frame(display)
 frame.pack()
 
 f1 = tkinter.LabelFrame(frame,text='Data')
 f1.grid(row = 0,column =0,sticky = 'news',padx=20,pady=10)
-
 
 var_1 = tkinter.Label(f1, text='Reg.No. :- ')
 var_1.grid(row = 1, column = 0)
@@ -120,8 +128,7 @@ for widget in f1.winfo_children():
 button1 = tkinter.Button(f1,text="Add",command = add)
 button1.grid(row = 11, column = 1,sticky='news',padx=10,pady=10)
 
-
-f2 = tkinter.LabelFrame(frame,text='F2')
+f2 = tkinter.LabelFrame(frame,text='Retrive Or Delete')
 f2.grid(row = 0,column =1,sticky = 'news',padx=20,pady=10)
 
 var_11 = tkinter.Label(f2, text='Reg No. :-')
@@ -134,7 +141,6 @@ button2.grid(row = 2, column = 0,sticky='news',padx=10,pady=10)
 
 button3 = tkinter.Button(f2,text="Delete",command = delete)
 button3.grid(row = 2, column = 1,sticky='news',padx=10,pady=10)
-
 
 display_label = tkinter.Label(f2,relief='raised',border=0,justify='left',anchor=tkinter.W)
 display_label.grid(row=3,column=0,columnspan=2)
