@@ -1,14 +1,19 @@
+
 #bapov75860@synclane.com
 #class12@project
 from tkinter import * 
 import mysql.connector as sqltor
-mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
-#https://www.phpmyadmin.co/
-#mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="fDAg7Cj5AW",database="sql6642699")
-cursor = mycon.cursor()
 import tkinter.messagebox 
 import ctypes
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
+# mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
+#https://www.phpmyadmin.co/
+try:
+     mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="fDAg7Cj5AW",database="sql6642699")
+     cursor = mycon.cursor()
+except:
+     tkinter.messagebox.showinfo('Project','Error !! Not Connected to database')
+     exit()
 
 l = []
 data = []
