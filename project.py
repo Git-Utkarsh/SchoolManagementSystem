@@ -1,7 +1,9 @@
 #bapov75860@synclane.com
+#class12@project
 from tkinter import * 
 import mysql.connector as sqltor
 mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
+#mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="fDAg7Cj5AW",database="sql6642699")
 cursor = mycon.cursor()
 import tkinter.messagebox 
 
