@@ -25,3 +25,5 @@ The Student Management System is a GUI-based application developed using the Tki
 
 - Python 3.x installed on your system.
 - MySQL Connector module (`mysql.connector`) installed. You can install it using the following command:
+-   ```sh
+  pip install mysql-connector-python
