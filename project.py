@@ -6,7 +6,7 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 # mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
 #https://www.phpmyadmin.co/
 try:
-     mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="fDAg7Cj5AW",database="sql6642699")
+     mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="",database="")
      cursor = mycon.cursor()
 except:
      tkinter.messagebox.showinfo('Project','Error !! Not Connected to database')
