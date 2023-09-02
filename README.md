@@ -45,6 +45,12 @@ Before you begin, ensure you have the following:
 
 2. Create a MySQL database named `schooldb` and update the database credentials in the code. You can change the host, user, and password in the `connection` line:
 
+3. Create a MySQL database named `schooldb` and update the database credentials in the code. You can change the host, user, and password in the `connection` line:
+
+```python
+connection = sql.connect(host="localhost", user="root", passwd="root", database="schooldb")
+```
+
 ## usage
 ```run
 python student_management.py
