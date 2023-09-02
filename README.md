@@ -85,5 +85,5 @@ If you want to contribute to this project, follow these steps:
 Contributions to this project are welcome! If you have any ideas, bug fixes, or improvements, please open an issue or submit a pull request.
 
 ## license
-This project is licensed under the MIT License. See the [license](#https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE)
+This project is licensed under the MIT License. See the [license](https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE)
  file for details.
