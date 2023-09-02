@@ -41,20 +41,29 @@ Before you begin, ensure you have the following:
 ## Installation
 
 1. Clone the repository:
+```
+git clone https://github.com/Git-Utkarsh/SMSProject.git
+```
 
+2. Install the rquired modules
+```pip
+pip install -r requirements.txt
+```
 
-2. Create a MySQL database named `schooldb` and update the database credentials in the code. You can change the host, user, and password in the `connection` line:
+4. Create a MySQL database named `schooldb` and update the database credentials in the code. You can change the host, user, and password in the `connection` line:
 
 ```sql
-CREATE TABLE class (
-    Reg INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    Name VARCHAR(255) NOT NULL,
-    Class INT NOT NULL,
-    Sec VARCHAR(255) NOT NULL,
-    Phone VARCHAR(255) NOT NULL,
-    Father VARCHAR(255) NOT NULL,
-    Mother VARCHAR(255) NOT NULL,
-    Address VARCHAR(255) NOT NULL
+mysql > CREATE DATABASE IF NOT EXISTS schooldb;
+mysql > USE schooldb;
+mysql > CREATE TABLE class (
+        Reg INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+        Name VARCHAR(255) NOT NULL,
+        Class INT NOT NULL,
+        Sec VARCHAR(255) NOT NULL,
+        Phone VARCHAR(255) NOT NULL,
+        Father VARCHAR(255) NOT NULL,
+        Mother VARCHAR(255) NOT NULL,
+        Address VARCHAR(255) NOT NULL
 );
 ```
 
@@ -64,7 +73,7 @@ CREATE TABLE class (
 connection = sql.connect(host="localhost", user="root", passwd="root", database="schooldb")
 ```
 
-## usage
+## Usage
 ```run
 python student_management.py
 ```
