@@ -3,9 +3,7 @@ import mysql.connector as sqltor
 import tkinter.messagebox 
 import ctypes
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
-# mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
-#https://www.phpmyadmin.co/
-#Contributor
+
 try:
      mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="",database="")
      cursor = mycon.cursor()
@@ -51,7 +49,6 @@ def retrive():
           if count==0:
                 tkinter.messagebox.showinfo('Project','No data found !')
           for i in range(len(data)):
-               # print(data[i])
                s = ''
                for j in range(10):
                          s += info[j]+' '+ str(data[i][j])+'\n'
