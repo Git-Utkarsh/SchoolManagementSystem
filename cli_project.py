@@ -3,8 +3,6 @@
 # mysql > use schooldb;
 # mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NOT NULL, Class Varchar(12) NOT NULL,
 #       > Sec Varchar(5) NOT NULL,Phone Varchar(20) NOT NULL,Father Varchar(30) NOT NULL, Mother Varchar(30) NOT NULL ,Address Varchar(40) NOT NULL);
-# mysql > insert into class(Reg,Name,Class,Sec,Phone,Father,Mother,Address) Values
-#         (1,"Name",11,"PCM",1234123412,"Father","Mother","Mars");
 import mysql.connector as sql
 from tabulate import tabulate #pip install tabulate
 connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
