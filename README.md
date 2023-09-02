@@ -47,7 +47,7 @@ git clone https://github.com/Git-Utkarsh/SchoolManagementSystem.git
 pip install -r requirements.txt
 ```
 
-4. Create a MySQL database named `schooldb` and update the database credentials in the code. You can change the host, user, and password in the `connection` line:
+3. Create a MySQL database named `schooldb`:
 
 ```sql
 mysql > create database if not exists schooldb;
@@ -57,7 +57,7 @@ mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NO
       > Mother Varchar(30) NOT NULL ,Address Varchar(40) NOT NULL);
 ```
 
-4. Create a MySQL database named `schooldb` and update the database credentials in the code. You can change the host, user, and password in the `connection` line:
+4. Update the database credentials in the code. You can change the host, user, and password in the `connection` line:
 
 ```python
 connection = sql.connect(host="localhost", user="root", passwd="root", database="schooldb")
