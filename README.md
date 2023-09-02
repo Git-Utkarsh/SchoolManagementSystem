@@ -1,9 +1,6 @@
-# SMSProject
 # Student Management System
 
 ![Alt text](https://img.lovepik.com/free-png/20210919/lovepik-school-png-image_400499294_wh1200.png)
-
-# Student Management System
 
 This Python program is a simple student management system that allows users to perform various operations related to student information and school management. It uses MySQL as the database to store student records and other related information.
 
@@ -42,7 +39,7 @@ Before you begin, ensure you have the following:
 
 1. Clone the repository:
 ```
-git clone https://github.com/Git-Utkarsh/SMSProject.git
+git clone https://github.com/Git-Utkarsh/SchoolManagementSystem.git
 ```
 
 2. Install the rquired modules
