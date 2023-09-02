@@ -1,14 +1,14 @@
 # Database query 
 # mysql > create database if not exists schooldb
-# mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NOT NULL, Class Varchar(12) NOT NULL,Sec Varchar(5) NOT NULL,
-#         Phone Varchar(20),Father Varchar(30),
-#         Mother Varchar(30),Address Varchar(40));
+# mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NOT NULL, Class Varchar(12) NOT NULL,Sec Varchar(5),Phone Varchar(20),Father Varchar(30),
+#                    Mother Varchar(30),Address Varchar(40));
 # mysql > insert into class(Reg,Name,Class,Sec,Phone,Father,Mother,Address) Values
 #     (1,"Name",11,"PCM",1234123412,"Father","Mother","Mars");
 import mysql.connector as sql
-from tabulate import tabulate #pip install tabulate
+from tabulate import tabulate
 connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
 cursor = connection.cursor()
+
 
 def start():
     print("""
@@ -37,11 +37,15 @@ def start():
         print("[-] Select Valid option !!")
 
 def admission_ava():
+
+
     """
     This fucntions checks that in a class if number of student is less than 40 
     Then only admission is possible else
     Admission will be not possible
     """
+
+
     ad_check = int(input("In which class you want to get admission (11-12):"))
     if ad_check == 11:
         cursor.execute('Select count(Class) "Class" from class Where Class=11')
@@ -51,6 +55,7 @@ def admission_ava():
             print("Admission is available")
         else:
             print("Admission is not available") 
+
     elif ad_check ==12:
         cursor.execute('Select count(Class) "Class" from class Where Class=12')
         row = cursor.fetchone()
@@ -61,10 +66,14 @@ def admission_ava():
             print("Admission is not avalible") 
 
 def disply_rec():
+
+
     """
     This function use tabulate module to create table while 
     retriving the data from the table
     """
+
+
     clas = input("Enter the class whose data you want to retrive:")
     cursor.execute('Select * from class where Class='+str(clas))
     row = cursor.fetchall()
@@ -72,6 +81,10 @@ def disply_rec():
     print(tabulate(row, headers=head, tablefmt="grid"))
 
 def delete():
+    """
+    This function take registration number as input and
+    delete the corresponding record from the database
+    """
     var_data_11 = int(input("Enter the registration number whose data you want to delete:"))
     sql1 = "DELETE FROM class WHERE Reg='%s'"
     data1=(var_data_11,)
@@ -80,6 +93,10 @@ def delete():
     print('Deleted successfully')
 
 def search():
+    """
+    This Function search record from the data base using
+    Registration number
+    """
     var_data_11 = int(input("Enter the registration number whose data you want to Find:"))
     cursor.execute("SELECT * FROM class WHERE Reg='%s'",(var_data_11,))  
     data = cursor.fetchall()
@@ -88,6 +105,10 @@ def search():
 
 
 def add_student():
+    """This Function is used to add the data to the sql database
+    """
+
+    
     Reg = input("Enter Student's Registration number :")
     Name =input("Enter Student's Name:")
     Class = input("Enter Student's Class:")
