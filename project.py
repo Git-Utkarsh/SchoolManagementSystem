@@ -5,6 +5,7 @@ import ctypes
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 # mycon = sqltor.connect(host="localhost",user="root",passwd="root",database="project")
 #https://www.phpmyadmin.co/
+#Contributor
 try:
      mycon = sqltor.connect(host="sql6.freesqldatabase.com",user="sql6642699",passwd="",database="")
      cursor = mycon.cursor()
