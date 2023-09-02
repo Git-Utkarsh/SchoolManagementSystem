@@ -71,12 +71,12 @@ python student_management.py
 ## Development
 If you want to contribute to this project, follow these steps:
 
-1.Fork the repository on GitHub.
-2.Clone your forked repository to your local machine.
-3.Create a new branch for your feature or bug fix.
-4.Make your changes and test thoroughly.
-5.Commit your changes and push them to your GitHub fork.
-6.Create a pull request to the original repository, explaining your changes and improvements.
+Fork the repository on GitHub.
+Clone your forked repository to your local machine.
+Create a new branch for your feature or bug fix.
+Make your changes and test thoroughly.
+Commit your changes and push them to your GitHub fork.
+Create a pull request to the original repository, explaining your changes and improvements.
 
 ## Contributing
 Contributions to this project are welcome! If you have any ideas, bug fixes, or improvements, please open an issue or submit a pull request.
