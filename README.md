@@ -1,7 +1,7 @@
 # SMSProject
 # Student Management System
 
-![Student Management System](school.png)
+![Student Management System]("https://img.lovepik.com/free-png/20210919/lovepik-school-png-image_400499294_wh1200.png")
 
 The Student Management System is a GUI-based application developed using the Tkinter library in Python. This system facilitates the efficient management of student records by allowing users to input and store essential information. The application establishes a connection to a MySQL database hosted on phpMyAdmin at "sql6.freesqldatabase.com", ensuring secure and accessible data storage.
 
