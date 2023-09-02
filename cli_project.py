@@ -1,14 +1,14 @@
-# Database query 
-# mysql > create database if not exists schooldb
-# mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NOT NULL, Class Varchar(12) NOT NULL,Sec Varchar(5),Phone Varchar(20),Father Varchar(30),
-#                    Mother Varchar(30),Address Varchar(40));
+# Database queries
+# mysql > create database if not exists schooldb;
+# mysql > use schooldb;
+# mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NOT NULL, Class Varchar(12) NOT NULL,
+#       > Sec Varchar(5) NOT NULL,Phone Varchar(20) NOT NULL,Father Varchar(30) NOT NULL, Mother Varchar(30) NOT NULL ,Address Varchar(40) NOT NULL);
 # mysql > insert into class(Reg,Name,Class,Sec,Phone,Father,Mother,Address) Values
 #     (1,"Name",11,"PCM",1234123412,"Father","Mother","Mars");
 import mysql.connector as sql
-from tabulate import tabulate
+from tabulate import tabulate #pip install tabulate
 connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
 cursor = connection.cursor()
-
 
 def start():
     print("""
@@ -26,11 +26,12 @@ def start():
     if inp==1:
         admission_ava()
     elif inp==2:
-        pass
+        fee_details()
     elif inp==3:
         pass
     elif inp==4:
-        entrance_system()
+        while True:
+            entrance_system()
     elif inp==5:
         exit()
     else:
@@ -46,7 +47,7 @@ def admission_ava():
     """
 
 
-    ad_check = int(input("In which class you want to get admission (11-12):"))
+    ad_check = int(input("In which class you want to get admission (9-12):"))
     if ad_check == 11:
         cursor.execute('Select count(Class) "Class" from class Where Class=11')
         row = cursor.fetchone()
@@ -65,14 +66,49 @@ def admission_ava():
         else:
             print("Admission is not avalible") 
 
+    elif ad_check ==10:
+        cursor.execute('Select count(Class) "Class" from class Where Class=10')
+        row = cursor.fetchone()
+        print("Number of students in class 10 is",row[0])
+        if row[0] < 40:
+            print("Admission is available")
+        else:
+            print("Admission is not avalible") 
+    
+    elif ad_check ==9:
+        cursor.execute('Select count(Class) "Class" from class Where Class=9')
+        row = cursor.fetchone()
+        print("Number of students in class 9 is",row[0])
+        if row[0] < 40:
+            print("Admission is available")
+        else:
+            print("Admission is not avalible")
+
+def fee_details():
+    """
+    Print Fee details of each class from 1 to 12
+    """
+    print(tabulate([
+        [1,2500,120,2620],
+        [2,2700,120,2820],
+        [3,2900,120,3020],
+        [4,3100,120,3220],
+        [5,3300,120,3420],
+        [6,3600,150,3750],
+        [7,3800,150,3950],
+        [8,4000,150,4150],
+        [9,4300,170,4470],
+        [10,4600,170,4770],
+        [11,5000,200,5200],
+        [12,5500,250,5750]
+
+        ],['Class','Admission Fees','Transport Fees','Total Fee'],'outline'))
+
 def disply_rec():
-
-
     """
     This function use tabulate module to create table while 
     retriving the data from the table
     """
-
 
     clas = input("Enter the class whose data you want to retrive:")
     cursor.execute('Select * from class where Class='+str(clas))
@@ -85,6 +121,7 @@ def delete():
     This function take registration number as input and
     delete the corresponding record from the database
     """
+
     var_data_11 = int(input("Enter the registration number whose data you want to delete:"))
     sql1 = "DELETE FROM class WHERE Reg='%s'"
     data1=(var_data_11,)
@@ -97,6 +134,7 @@ def search():
     This Function search record from the data base using
     Registration number
     """
+
     var_data_11 = int(input("Enter the registration number whose data you want to Find:"))
     cursor.execute("SELECT * FROM class WHERE Reg='%s'",(var_data_11,))  
     data = cursor.fetchall()
@@ -107,7 +145,6 @@ def search():
 def add_student():
     """This Function is used to add the data to the sql database
     """
-
     
     Reg = input("Enter Student's Registration number :")
     Name =input("Enter Student's Name:")
@@ -133,6 +170,60 @@ def add_student():
         print("[ERROR] \n Make sure to Enter all the required data !!!")
 
     
+def edit_rec():
+    full_data()
+    ed = int(input("Enter the registration no. of the student whose record you want to edit:"))
+    print("\n\n You Selected ===> ")
+    cursor.execute("SELECT * FROM class WHERE Reg='%s'",(ed,))  
+    data = cursor.fetchall()
+    head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
+    print(tabulate(data, headers=head, tablefmt="grid"))
+    print("""
+          
+    "\t \t Which field you want to edit "
+          
+    "\t1.Name  2.Class  3.Section 4.Phone 5.Father's Name 6.Mother's Name 7.Address""")
+    inp = int(input("Select the option :"))
+    if inp==1:
+        name=input("Enter the new name :")
+        cursor.execute("UPDATE class set Name=%s WHERE Reg='%s'",(name,ed,))  
+        connection.commit()
+    if inp==2:
+        Class=input("Enter the new Class :")
+        cursor.execute("UPDATE class set Class=%s WHERE Reg='%s'",(Class,ed,))  
+        connection.commit()
+    elif inp==3:
+        Section=input("Enter the new Section :")
+        cursor.execute("UPDATE class set Sec=%s WHERE Reg='%s'",(Section,ed,))  
+        connection.commit()
+    elif inp==4:
+        Phone=input("Enter the new Phone.no :")
+        cursor.execute("UPDATE class set Phone=%s WHERE Reg='%s'",(Phone,ed,))  
+        connection.commit()
+    elif inp==5:
+        Father=input("Enter the new Father's name :")
+        cursor.execute("UPDATE class set Father=%s WHERE Reg='%s'",(Father,ed,))  
+        connection.commit()
+    elif inp==6:
+        Mother=input("Enter the new Mother's name :")
+        cursor.execute("UPDATE class set Mother=%s WHERE Reg='%s'",(Mother,ed,))  
+        connection.commit()
+    elif inp==7:
+        Address=input("Enter the new Address :")
+        cursor.execute("UPDATE class set Address=%s WHERE Reg='%s'",(Address,ed,))  
+        connection.commit()
+    else:
+        print("[+] Modified Successfully")
+
+def full_data():
+    """
+    This Function prints all the record from the database in ascending order
+    """
+    cursor.execute('SELECT * FROM class ORDER BY Reg ASC')
+    row = cursor.fetchall()
+    head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
+    print(tabulate(row, headers=head, tablefmt="grid"))
+
 def entrance_system():
     print("""
         This is Student Entrance System
@@ -144,20 +235,29 @@ def entrance_system():
         3.Edit Record
         4.Delete Record
         5.Search Record
-        6.Back
+        6.Show full Database
+        7.Back
 """)
     option = int(input("Select option:"))
     if option== 1:
         add_student()
+        input("Press Enter to continue. . .")
     elif option==2:
         disply_rec()
+        input("Press Enter to continue. . .")
     elif option==3:
-        pass
+        edit_rec()
+        input("Press Enter to continue. . .")
     elif option==4:
         delete()
+        input("Press Enter to continue. . .")
     elif option==5:
         search()
+        input("Press Enter to continue. . .")
     elif option==6:
+        full_data()
+        input("Press Enter to continue. . .")
+    elif option==7:
         start()
     else:
         pass
