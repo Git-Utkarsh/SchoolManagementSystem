@@ -1,11 +1,6 @@
-# Database queries
-# mysql > create database if not exists schooldb;
-# mysql > use schooldb;
-# mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NOT NULL, Class Varchar(12) NOT NULL,
-#       > Sec Varchar(5) NOT NULL,Phone Varchar(20) NOT NULL,Father Varchar(30) NOT NULL, Mother Varchar(30) NOT NULL ,Address Varchar(40) NOT NULL);
-import mysql.connector as sql
+import mysql.connector as sql #pip install mysql-connector-python
 from tabulate import tabulate #pip install tabulate
-connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
+connection = sql.connect(host="localhost",user="YOU_SQL_USERNAME",passwd="<YOU_PASSWORD>",database="schooldb")
 cursor = connection.cursor()
 
 def start():
@@ -43,7 +38,6 @@ def admission_ava():
     Then only admission is possible else
     Admission will be not possible
     """
-
 
     ad_check = int(input("In which class you want to get admission (9-12):"))
     if ad_check == 11:
