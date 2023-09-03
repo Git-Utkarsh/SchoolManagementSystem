@@ -41,7 +41,7 @@ def start():
         [5,"Exit"]
         ],['No.','Operation'],'outline')
     
-    print(termcolor.colored(table,"yellow"))
+    print(table)
     inp = int(input("Select option :"))
     if inp==1:
         admission_ava()
