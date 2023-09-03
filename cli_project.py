@@ -47,51 +47,34 @@ def start():
     else:
         print("[-] Select Valid option !!")
 
+
+def check(class_):
+    """
+    This function performs the check using SQL count method
+    """
+    
+    cl = int(class_)
+    cursor.execute('Select count(Class) "Class" from class Where Class='+str(cl))
+    row = cursor.fetchone()
+    print("Number of students in class ",cl," is",row[0])
+    if row[0] < 40:
+        print("Admission is available")
+    else:
+        print("Admission is not avalible")
+
 def admission_ava():
-
-
     """
     This fucntions checks that in a class if number of student is less than 40 
     Then only admission is possible else
     Admission will be not possible
     """
-
-    ad_check = int(input("In which class you want to get admission (9-12):"))
-    if ad_check == 11:
-        cursor.execute('Select count(Class) "Class" from class Where Class=11')
-        row = cursor.fetchone()
-        print("Number of students in class 11 is",row[0])
-        if row[0] < 40:
-            print("Admission is available")
-        else:
-            print("Admission is not available") 
-
-    elif ad_check ==12:
-        cursor.execute('Select count(Class) "Class" from class Where Class=12')
-        row = cursor.fetchone()
-        print("Number of students in class 12 is",row[0])
-        if row[0] < 40:
-            print("Admission is available")
-        else:
-            print("Admission is not avalible") 
-
-    elif ad_check ==10:
-        cursor.execute('Select count(Class) "Class" from class Where Class=10')
-        row = cursor.fetchone()
-        print("Number of students in class 10 is",row[0])
-        if row[0] < 40:
-            print("Admission is available")
-        else:
-            print("Admission is not avalible") 
     
-    elif ad_check ==9:
-        cursor.execute('Select count(Class) "Class" from class Where Class=9')
-        row = cursor.fetchone()
-        print("Number of students in class 9 is",row[0])
-        if row[0] < 40:
-            print("Admission is available")
-        else:
-            print("Admission is not avalible")
+    ad_check = int(input("In which class you want to get admission (1-12):"))
+    if ad_check<=12 and ad_check>0:
+        check(ad_check)
+    else:
+        print("[-]Enter valid option")
+
 
 def fee_details():
     """
