@@ -63,16 +63,19 @@ def check(class_):
         print("Admission is not avalible")
 
 def admission_ava():
+
     """
     This fucntions checks that in a class if number of student is less than 40 
     Then only admission is possible else
     Admission will be not possible
     """
-    
-    ad_check = int(input("In which class you want to get admission (1-12):"))
-    if ad_check<=12 and ad_check>0:
-        check(ad_check)
-    else:
+    try:
+        ad_check = int(input("In which class you want to get admission (1-12):"))
+        if ad_check<=12 and ad_check>0:
+            check(ad_check)
+        else:
+            print("[-]Enter valid option")
+    except:
         print("[-]Enter valid option")
 
 
