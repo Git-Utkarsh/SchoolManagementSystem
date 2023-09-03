@@ -1,12 +1,12 @@
 #School Management Systemmmm!!
 import mysql.connector as sql #pip install mysql-connector-python
 from tabulate import tabulate #pip install tabulate
-connection = sql.connect(host="localhost",user="<USERNAME>",passwd="<PASSWORD>",database="schooldb")
+connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
 cursor = connection.cursor()
 
 def banner_1():
     print("""
-___________________________________________________________________________________________________________________________________________        
+ __________________________________________________________________________________________________________________________________________       
 |   _____      _                 _   __  __                                                   _      _____           _                     |
 |  / ____|    | |               | | |  \/  |                                                 | |    / ____|         | |                    |
 | | (___   ___| |__   ___   ___ | | | \  / | __ _ _ __   __ _  __ _  ___ _ __ ___   ___ _ __ | |_  | (___  _   _ ___| |_ ___ _ __ ___      |
@@ -17,7 +17,7 @@ ________________________________________________________________________________
 |                                                             |___/                                        |___/                           |
 |__________________________________________________________________________________________________________________________________________|
 
-          """)
+                    """)
 
 def banner_2():
     print("""
@@ -26,12 +26,16 @@ def banner_2():
      | |__   _ __ | |_ _ __ __ _ _ __   ___ ___  | (___  _   _ ___| |_ ___ _ __ ___  
      |  __| | '_ \| __| '__/ _` | '_ \ / __/ _ \  \___ \| | | / __| __/ _ \ '_ ` _ \ 
      | |____| | | | |_| | | (_| | | | | (_|  __/  ____) | |_| \__ \ ||  __/ | | | | |
-     |______|_| |_|\__|_|  \__,_|_| |_|\___\___| |_____/ \__, |___/\__\___|_| |_| |_|
-                                                      __/ |                      
+     |______|_| |_|\__|_|  \__,_|_| |_|\___\___| |_____/ \  / |___/\__\___|_| |_| |_|
+                                                      __/ /                     
                                                      |___/                      
 """)
     
 def start():
+    """
+    From here the program starts
+
+    """
     banner_1()
     table = tabulate([
         [1,"Check admission avalibility"],
@@ -203,9 +207,11 @@ def edit_rec():
     print(tabulate(data, headers=head, tablefmt="grid"))
     print("""
           
-    "\t \t Which field you want to edit "
+    \t \t \t Which field you want to edit 
           
-    "\t1.Name  2.Class  3.Section 4.Phone 5.Father's Name 6.Mother's Name 7.Address""")
+1.Name  2.Class  3.Section 4.Phone 5.Father's Name 6.Mother's Name 7.Address 8.Back
+          
+          """)
     inp = int(input("Select the option :"))
     if inp==1:
         name=input("Enter the new name :")
@@ -235,8 +241,10 @@ def edit_rec():
         Address=input("Enter the new Address :")
         cursor.execute("UPDATE class set Address=%s WHERE Reg='%s'",(Address,ed,))  
         connection.commit()
+    elif inp==8:
+         entrance_system()
     else:
-        print("[+] Modified Successfully")
+        print("[-] Error Occured")
 
 def full_data():
     """
@@ -246,7 +254,6 @@ def full_data():
     row = cursor.fetchall()
     head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
     print(tabulate(row, headers=head, tablefmt="grid"))
-
 
 def entrance_system():
     banner_2()
@@ -260,7 +267,6 @@ def entrance_system():
         [7,"Back"]
         ],['No.','Operation',],'outline')
     print(table)
-    
     option = int(input("Select option:"))
     if option== 1: 
         add_student()
@@ -284,7 +290,7 @@ def entrance_system():
         start()
     else:
         pass
-    
+
 if __name__ == '__main__':
     while True:
         start()
