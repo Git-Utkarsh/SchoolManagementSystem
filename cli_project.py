@@ -163,6 +163,11 @@ def add_student():
 
     
 def edit_rec():
+    """
+    This function will update values of a particular
+    record in the database using SQL's UPDATE keyword
+    """
+    
     full_data()
     ed = int(input("Enter the registration no. of the student whose record you want to edit:"))
     print("\n\n You Selected ===> ")
@@ -253,6 +258,7 @@ def entrance_system():
         start()
     else:
         pass
-while True:
-    start()
-    input("Press Enter to continue. . .")
+if __name__ == '__main__':
+    while True:
+        start()
+        input("Press Enter to continue. . .")
