@@ -4,7 +4,7 @@ from tabulate import tabulate #pip install tabulate
 connection = sql.connect(host="localhost",user="YOU_SQL_USERNAME",passwd="<YOU_PASSWORD>",database="schooldb")
 cursor = connection.cursor()
 
-def banner():
+def banner_1():
     print("""
 ___________________________________________________________________________________________________________________________________________        
 |   _____      _                 _   __  __                                                   _      _____           _                     |
