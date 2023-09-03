@@ -235,22 +235,22 @@ def full_data():
     head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
     print(tabulate(row, headers=head, tablefmt="grid"))
 
+
 def entrance_system():
-    print("""
-        This is Student Entrance System
-        
-        Select operation you want to perform
-          
-        1.Add Student Details in Database
-        2.Disply Record Class Wise
-        3.Edit Record
-        4.Delete Record
-        5.Search Record
-        6.Show full Database
-        7.Back
-""")
+    banner_2()
+    table = tabulate([
+        [1,"Add Student Details in Database"],
+        [2,"Disply Record Class Wise"],
+        [3,"Edit Record"],
+        [4,"Delete Record"],
+        [5,"Search Record"],
+        [6,"Show full Database"],
+        [7,"Back"]
+        ],['No.','Operation',],'outline')
+    print(table)
+    
     option = int(input("Select option:"))
-    if option== 1:
+    if option== 1: 
         add_student()
         input("Press Enter to continue. . .")
     elif option==2:
@@ -272,6 +272,7 @@ def entrance_system():
         start()
     else:
         pass
+        
 if __name__ == '__main__':
     while True:
         start()
