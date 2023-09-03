@@ -30,19 +30,18 @@ def banner_2():
                                                       __/ |                      
                                                      |___/                      
 """)
+
 def start():
-    banner()
-    print("""
-
-    Choose the operation you want to perform 
-
-    1.Check admission avalibility
-    2.Show Fee structure
-    3.Show School Management information
-    4.Entrance status
-    5.Exit
-
-    """)
+    banner_1()
+    table = tabulate([
+        [1,"Check admission avalibility"],
+        [2,"Show Fee structure"],
+        [3,"Show School Management information"],
+        [4,"Entrance status"],
+        [5,"Exit"]
+        ],['No.','Operation'],'outline')
+    
+    print(termcolor.colored(table,"yellow"))
     inp = int(input("Select option :"))
     if inp==1:
         admission_ava()
@@ -57,7 +56,6 @@ def start():
         exit()
     else:
         print("[-] Select Valid option !!")
-
 
 def check(class_):
     """
