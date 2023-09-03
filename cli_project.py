@@ -1,7 +1,7 @@
 #School Management Systemmmm!!
 import mysql.connector as sql #pip install mysql-connector-python
 from tabulate import tabulate #pip install tabulate
-connection = sql.connect(host="localhost",user="YOU_SQL_USERNAME",passwd="<YOU_PASSWORD>",database="schooldb")
+connection = sql.connect(host="localhost",user="<USERNAME>",passwd="<PASSWORD>",database="schooldb")
 cursor = connection.cursor()
 
 def banner_1():
@@ -30,7 +30,7 @@ def banner_2():
                                                       __/ |                      
                                                      |___/                      
 """)
-
+    
 def start():
     banner_1()
     table = tabulate([
@@ -42,20 +42,23 @@ def start():
         ],['No.','Operation'],'outline')
     
     print(table)
-    inp = int(input("Select option :"))
-    if inp==1:
-        admission_ava()
-    elif inp==2:
-        fee_details()
-    elif inp==3:
-        pass
-    elif inp==4:
-        while True:
-            entrance_system()
-    elif inp==5:
-        exit()
-    else:
-        print("[-] Select Valid option !!")
+    try:
+        inp = int(input("Select option :"))
+        if inp==1:
+                admission_ava()
+        elif inp==2:
+                fee_details()
+        elif inp==3:
+                pass
+        elif inp==4:
+                while True:
+                        entrance_system()
+        elif inp==5:
+                exit()
+        else:
+                print("[-] Select Valid option !!")
+    except ValueError:
+         print("[-]Error!! Option must be integer type")
 
 def check(class_):
     """
@@ -84,8 +87,8 @@ def admission_ava():
             check(ad_check)
         else:
             print("[-]Enter valid option")
-    except:
-        print("[-]Enter valid option")
+    except NameError:
+        print("[-]Error!! Option must be integer type")
 
 
 def fee_details():
@@ -113,12 +116,17 @@ def disply_rec():
     This function use tabulate module to create table while 
     retriving the data from the table
     """
-
-    clas = input("Enter the class whose data you want to retrive:")
-    cursor.execute('Select * from class where Class='+str(clas))
-    row = cursor.fetchall()
-    head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
-    print(tabulate(row, headers=head, tablefmt="grid"))
+    try:
+        clas = int(input("Enter the class whose data you want to retrive:"))
+    except NameError:
+          print("[-] Error!! Option must be integer type")
+    if clas<=12 and clas>0:
+        cursor.execute('Select * from class where Class='+str(clas))
+        row = cursor.fetchall()
+        head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
+        print(tabulate(row, headers=head, tablefmt="grid"))
+    else:
+         print("[-] Error Occured! Enter Valid class")
 
 def delete():
     """
@@ -138,12 +146,18 @@ def search():
     This Function search record from the data base using
     Registration number
     """
-
-    var_data_11 = int(input("Enter the registration number whose data you want to Find:"))
-    cursor.execute("SELECT * FROM class WHERE Reg='%s'",(var_data_11,))  
+    
+    try:
+        clas = int(input("Enter the registration number whose data you want to Find:"))
+    except NameError:
+          print("[-] Error!! Option must be integer type")
+    cursor.execute("SELECT * FROM class WHERE Reg='%s'",(clas,))  
     data = cursor.fetchall()
-    head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
-    print(tabulate(data, headers=head, tablefmt="grid"))
+    if data==[]:
+         print("No data found !!")
+    else:
+        head = ["Reg", "Name","Class","Section","Phone","Father","Mother","Address"]
+        print(tabulate(data, headers=head, tablefmt="grid"))
 
 
 def add_student():
@@ -270,7 +284,7 @@ def entrance_system():
         start()
     else:
         pass
-        
+    
 if __name__ == '__main__':
     while True:
         start()
