@@ -67,6 +67,7 @@ def start():
 def check(class_):
     """
     This function performs the check using SQL count method
+    
     """
     
     cl = int(class_)
@@ -82,6 +83,7 @@ def admission_ava():
 
     """
     This fucntions checks that in a class if number of student is less than 40 
+    
     Then only admission is possible else
     Admission will be not possible
     """
@@ -98,6 +100,7 @@ def admission_ava():
 def fee_details():
     """
     Print Fee details of each class from 1 to 12
+    
     """
     print(tabulate([
         [1,2500,120,2620],
@@ -117,8 +120,9 @@ def fee_details():
 
 def disply_rec():
     """
-    This function use tabulate module to create table while 
-    retriving the data from the table
+    This function use tabulate module to create table
+    
+    while retriving the data from the table
     """
     try:
         clas = int(input("Enter the class whose data you want to retrive:"))
@@ -135,6 +139,7 @@ def disply_rec():
 def delete():
     """
     This function take registration number as input and
+    
     delete the corresponding record from the database
     """
 
@@ -147,8 +152,9 @@ def delete():
 
 def search():
     """
-    This Function search record from the data base using
-    Registration number
+    This Function search record
+    
+    from the data base using Registration number
     """
     
     try:
@@ -166,6 +172,7 @@ def search():
 
 def add_student():
     """This Function is used to add the data to the sql database
+    
     """
     
     Reg = input("Enter Student's Registration number :")
@@ -195,6 +202,7 @@ def add_student():
 def edit_rec():
     """
     This function will update values of a particular
+    
     record in the database using SQL's UPDATE keyword
     """
     
@@ -249,6 +257,7 @@ def edit_rec():
 def full_data():
     """
     This Function prints all the record from the database in ascending order
+    
     """
     cursor.execute('SELECT * FROM class ORDER BY Reg ASC')
     row = cursor.fetchall()
