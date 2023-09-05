@@ -37,12 +37,12 @@ Before you begin, ensure you have the following:
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository or Download the .zip file if you are in windows :
 ```
 git clone https://github.com/Git-Utkarsh/SchoolManagementSystem.git
 ```
 
-2. Install the rquired modules
+2. Change directory to SchoolManagementSystem and Install the required modules
 ```pip
 pip install -r requirements.txt
 ```
