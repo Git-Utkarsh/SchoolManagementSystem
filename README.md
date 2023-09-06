@@ -22,7 +22,7 @@ The Student Management System provides the following features:
 
 2. **Show Fee Structure**: Display the fee structure for classes from 1 to 12, including admission fees, transport fees, and total fees.
 
-3. **Display School Management Information**: This feature is a placeholder and can be expanded to display school management information.
+3. **Display School Management Information**: Yet to be coded.
 
 4. **Entrance Status**: Enter the student entrance system, which allows you to add, display, edit, delete, search, and show the full database of student records.
 
