@@ -119,5 +119,5 @@ Contributions to this project are welcome! If you have any ideas, bug fixes, or 
 
 
 ## License
-This School Management System is open-source software released under the [license](https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE). You are free to use, modify, and distribute this software in accordance with the license terms.
+This School Management System is open-source software released under the [MIT License](https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE). You are free to use, modify, and distribute this software in accordance with the license terms.
 
