@@ -64,6 +64,13 @@ def start():
     except ValueError:
          print("[-]Error!! Option must be integer type")
 
+def marks():
+     n=float(input("Enter the percentage student got in the entrance exam:"))
+     if n>=40:
+          entrance_system()
+     else:
+          print("Sorry !! But You are failed We can't admit you in our school")
+          
 def check(class_):
     """
     This function performs the check using SQL count method
@@ -76,6 +83,7 @@ def check(class_):
     print("Number of students in class ",cl," is",row[0])
     if row[0] < 40:
         print("Admission is available")
+        marks()
     else:
         print("Admission is not avalible")
 
@@ -299,7 +307,7 @@ def entrance_system():
         start()
     else:
         pass
-
+        
 if __name__ == '__main__':
     while True:
         start()
