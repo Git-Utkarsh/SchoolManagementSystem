@@ -53,7 +53,7 @@ def start():
         elif inp==2:
                 fee_details()
         elif inp==3:
-                pass
+                print("Yet to be programmed")
         elif inp==4:
                 while True:
                         entrance_system()
