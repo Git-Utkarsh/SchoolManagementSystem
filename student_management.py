@@ -73,6 +73,10 @@ def start():
 
 
 def campus_facility():
+    """
+    This fucntion give the information about the campus and facilities
+    
+    """
      camp = tabulate([
           ["Labs"],
           ["Classroom"],
