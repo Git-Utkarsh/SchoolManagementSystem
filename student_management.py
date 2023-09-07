@@ -82,14 +82,16 @@ def campus_facility():
      ],["CAMPUS & FACILITY"],'outline')
      print(camp)
 
-
 def time_table():
+    """
+    This fucntion shows the school timing of the students from Class I to Class XII.
+    
+    """
     Time = tabulate([
-        ["Nursery to Class II","09:00 a.m to 01:00 p.m.","10:00 a.m to 02:00 p.m."],
+        ["I and Class II","09:00 a.m to 01:00 p.m.","10:00 a.m to 02:00 p.m."],
         ["Classes III to XII","08:00 a.m to 02:00 p.m.","09:00 a.m to 03:00 p.m."]
     ],["CLASS","SUMMER","WINTER"],'outline')
     print(Time)
-
 
 def marks():
      n=float(input("Enter the percentage student got in the entrance exam:"))
