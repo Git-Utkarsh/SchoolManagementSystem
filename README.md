@@ -10,6 +10,7 @@ The School Management System is a Python program designed to manage various aspe
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributors](#Contributors)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)
