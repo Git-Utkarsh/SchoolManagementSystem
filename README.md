@@ -74,17 +74,17 @@ mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NO
 
 4. Update the database credentials in the code. You can change the host, user, and password in the `connection` line:
 
-```python
-connection = sql.connect(host="localhost", user="root", passwd="root", database="schooldb")
-```
+   ```python
+   connection = sql.connect(host="localhost", user="root", passwd="root", database="schooldb")
+   ```
 
 ## Usage
 
 1. **Run the Program**:
    - Run the program using a Python interpreter. The program will start with a menu displaying various options.
-```run
-python student_management.py
-```
+   ```run
+   python student_management.py
+   ```
 
 
 2. **Navigation**:
@@ -97,16 +97,10 @@ python student_management.py
 
 ## Contributors
 
-- [Your Name] (if you are contributing or maintaining the code)
-
-
-## Acknowledgments
-
-- [Mention any acknowledgments or references if applicable]
-
----
-
-Feel free to customize this README to include any additional information or instructions that are relevant to your use case.
+- [Git-Utkarsh](https://github.com/Git-Utkarsh)
+- [Ssp-coder](https://github.com/Ssp-coder)
+- [SaurabhK2608](https://github.com/SaurabhK2608)
+- [PULLAAA](https://github.com/PULLAAA)
 
 
 ## Development
