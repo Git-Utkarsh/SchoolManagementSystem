@@ -94,6 +94,11 @@ def time_table():
     print(Time)
 
 def marks():
+    """
+    This fucntion checks the marks obtained by the candidate in the entrance exam.
+
+    If marks is greater then 40 then entrance_system fucntion is executed
+    """
      n=float(input("Enter the percentage student got in the entrance exam:"))
      if n>=40:
           entrance_system()
