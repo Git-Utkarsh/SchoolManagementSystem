@@ -39,30 +39,41 @@ def start():
     banner_1()
     table = tabulate([
         [1,"Check admission avalibility"],
-        [2,"Show Fee structure"],
-        [3,"Show School Management information"],
-        [4,"Entrance status"],
-        [5,"Exit"]
+        [2,"School Timings"],
+        [3,"Show Fee structure"],
+        [4,"Show School Management information"],
+        [5,"Entrance status"],
+        [6,"Exit"]
         ],['No.','Operation'],'outline')
     
     print(table)
+
     try:
         inp = int(input("Select option :"))
         if inp==1:
                 admission_ava()
         elif inp==2:
-                fee_details()
+                time_table()
         elif inp==3:
-                print("Yet to be programmed")
+                fee_details()
         elif inp==4:
+                print("Yet to be programmed !")
+        elif inp==5:
                 while True:
                         entrance_system()
-        elif inp==5:
-                exit()
+        elif inp==6:
+             exit()
         else:
                 print("[-] Select Valid option !!")
     except ValueError:
          print("[-]Error!! Option must be integer type")
+
+def time_table():
+    Time = tabulate([
+        ["Nursery to Class II","09:00 a.m to 01:00 p.m.","10:00 a.m to 02:00 p.m."],
+        ["Classes III to XII","08:00 a.m to 02:00 p.m.","09:00 a.m to 03:00 p.m."]
+    ],["CLASS","SUMMER","WINTER"],'outline')
+    print(Time)
 
 def marks():
      n=float(input("Enter the percentage student got in the entrance exam:"))
@@ -70,7 +81,7 @@ def marks():
           entrance_system()
      else:
           print("Sorry !! But You are failed We can't admit you in our school")
-          
+
 def check(class_):
     """
     This function performs the check using SQL count method
@@ -307,7 +318,7 @@ def entrance_system():
         start()
     else:
         pass
-        
+
 if __name__ == '__main__':
     while True:
         start()
