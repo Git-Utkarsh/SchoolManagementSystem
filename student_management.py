@@ -1,4 +1,4 @@
-#School Management Systemmmm!!!
+#School Management System
 import mysql.connector as sql #pip install mysql-connector-python
 from tabulate import tabulate #pip install tabulate
 connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
@@ -39,11 +39,12 @@ def start():
     banner_1()
     table = tabulate([
         [1,"Check admission avalibility"],
-        [2,"School Timings"],
-        [3,"Show Fee structure"],
-        [4,"Show School Management information"],
-        [5,"Entrance status"],
-        [6,"Exit"]
+        [2,"Campus & Facility"],
+        [3,"School Timings"],
+        [4,"Show Fee structure"],
+        [5,"Show School Management information"],
+        [6,"Entrance status"],
+        [7,"Exit"]
         ],['No.','Operation'],'outline')
     
     print(table)
@@ -53,20 +54,34 @@ def start():
         if inp==1:
                 admission_ava()
         elif inp==2:
-                time_table()
+             campus_facility()
         elif inp==3:
-                fee_details()
+                time_table()
         elif inp==4:
-                print("Yet to be programmed !")
+                fee_details()
         elif inp==5:
+                print("Yet to be programmed !")
+        elif inp==6:
                 while True:
                         entrance_system()
-        elif inp==6:
+        elif inp==7:
              exit()
         else:
                 print("[-] Select Valid option !!")
     except ValueError:
          print("[-]Error!! Option must be integer type")
+
+
+def campus_facility():
+     camp = tabulate([
+          ["Labs"],
+          ["Classroom"],
+          ["Library"],
+          ["IT Lab"],
+          ["Sports Room"]
+     ],["CAMPUS & FACILITY"],'outline')
+     print(camp)
+
 
 def time_table():
     Time = tabulate([
@@ -74,6 +89,7 @@ def time_table():
         ["Classes III to XII","08:00 a.m to 02:00 p.m.","09:00 a.m to 03:00 p.m."]
     ],["CLASS","SUMMER","WINTER"],'outline')
     print(Time)
+
 
 def marks():
      n=float(input("Enter the percentage student got in the entrance exam:"))
