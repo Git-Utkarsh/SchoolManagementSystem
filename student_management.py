@@ -110,7 +110,6 @@ def check(class_):
     This function performs the check using SQL count method
     
     """
-    
     cl = int(class_)
     cursor.execute('Select count(Class) "Class" from class Where Class='+str(cl))
     row = cursor.fetchone()
@@ -184,7 +183,6 @@ def delete():
     
     delete the corresponding record from the database
     """
-
     var_data_11 = int(input("Enter the registration number whose data you want to delete:"))
     sql1 = "DELETE FROM class WHERE Reg='%s'"
     data1=(var_data_11,)
@@ -198,7 +196,6 @@ def search():
     
     from the data base using Registration number
     """
-    
     try:
         clas = int(input("Enter the registration number whose data you want to Find:"))
     except NameError:
@@ -216,7 +213,6 @@ def add_student():
     """This Function is used to add the data to the sql database
     
     """
-    
     Reg = input("Enter Student's Registration number :")
     Name =input("Enter Student's Name:")
     Class = input("Enter Student's Class:")
@@ -247,7 +243,6 @@ def edit_rec():
     
     record in the database using SQL's UPDATE keyword
     """
-    
     full_data()
     ed = int(input("Enter the registration no. of the student whose record you want to edit:"))
     print("\n\n You Selected ===> ")
