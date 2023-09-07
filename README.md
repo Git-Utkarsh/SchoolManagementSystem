@@ -1,8 +1,8 @@
-# Student Management System
+# School Management System
+
+The School Management System is a Python program designed to manage various aspects of a school, including admissions, campus facilities, school timings, fee structures, student records, and more. This system is primarily aimed at school administrators, teachers, and staff to streamline and organize school-related tasks.
 
 ![Alt text](https://img.lovepik.com/free-png/20210919/lovepik-school-png-image_400499294_wh1200.png)
-
-This Python program is a simple student management system that allows users to perform various operations related to student information and school management. It uses MySQL as the database to store student records and other related information.
 
 ## Table of Contents
 
@@ -16,15 +16,30 @@ This Python program is a simple student management system that allows users to p
 
 ## Features
 
-The Student Management System provides the following features:
+1. **Admission Availability Check**: 
+   - Users can check if there are available admission slots for a specific class.
+   - If admission is available, students are prompted to enter their entrance exam marks to determine eligibility.
 
-1. **Check Admission Availability**: Users can check if admission is available for a specific class (9-12). It checks if the number of students in a class is less than 40.
+2. **Campus & Facility Information**:
+   - Provides information about the various facilities available on the school campus, such as labs, classrooms, library, IT lab, and sports rooms.
 
-2. **Show Fee Structure**: Display the fee structure for classes from 1 to 12, including admission fees, transport fees, and total fees.
+3. **School Timings**:
+   - Displays the school timings for different classes, including summer and winter schedules.
 
-3. **Display School Management Information**: Yet to be coded.
+4. **Fee Structure**:
+   - Shows the fee structure for each class from 1 to 12, including admission fees and transport fees.
 
-4. **Entrance Status**: Enter the student entrance system, which allows you to add, display, edit, delete, search, and show the full database of student records.
+5. **Entrance System**:
+   - Includes an entrance system with options to:
+     - Add student details to the database.
+     - Display records class-wise.
+     - Edit and update student records.
+     - Delete student records.
+     - Search for specific student records.
+     - Display the full database of student records.
+
+6. **Banner Display**:
+   - Presents visually appealing banners at the start of the program to create a school-themed user interface.
 
 ## Prerequisites
 
@@ -37,12 +52,12 @@ Before you begin, ensure you have the following:
 
 ## Installation
 
-1. Clone the repository or Download the .zip file if you are in windows :
+1. Clone the repository:
 ```
 git clone https://github.com/Git-Utkarsh/SchoolManagementSystem.git
 ```
 
-2. Change directory to SchoolManagementSystem and Install the required modules
+2. Install the rquired modules
 ```pip
 pip install -r requirements.txt
 ```
@@ -64,9 +79,35 @@ connection = sql.connect(host="localhost", user="root", passwd="root", database=
 ```
 
 ## Usage
+
+1. **Run the Program**:
+   - Run the program using a Python interpreter. The program will start with a menu displaying various options.
 ```run
 python student_management.py
 ```
+
+
+2. **Navigation**:
+   - Use the numeric keys to navigate through the menu and perform different operations.
+   - Follow the on-screen instructions to input data and interact with the system.
+
+
+3. **Exit**:
+   - You can exit the program at any time by selecting the "Exit" option from the menu.
+
+## Contributors
+
+- [Your Name] (if you are contributing or maintaining the code)
+
+
+## Acknowledgments
+
+- [Mention any acknowledgments or references if applicable]
+
+---
+
+Feel free to customize this README to include any additional information or instructions that are relevant to your use case.
+
 
 ## Development
 If you want to contribute to this project, follow these steps:
@@ -81,6 +122,7 @@ If you want to contribute to this project, follow these steps:
 ## Contributing
 Contributions to this project are welcome! If you have any ideas, bug fixes, or improvements, please open an issue or submit a pull request.
 
-## license
-This project is licensed under the MIT License. See the [license](https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE)
- file for details.
+
+## License
+This School Management System is open-source software released under the [license](https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE). You are free to use, modify, and distribute this software in accordance with the license terms.
+
