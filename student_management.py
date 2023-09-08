@@ -77,14 +77,14 @@ def campus_facility():
     This fucntion give the information about the campus and facilities
     
     """
-     camp = tabulate([
+    camp = tabulate([
           ["Labs"],
           ["Classroom"],
           ["Library"],
           ["IT Lab"],
           ["Sports Room"]
-     ],["CAMPUS & FACILITY"],'outline')
-     print(camp)
+    ],["CAMPUS & FACILITY"],'outline')
+    print(camp)
 
 def time_table():
     """
@@ -103,10 +103,10 @@ def marks():
 
     If marks is greater then 40 then entrance_system fucntion is executed
     """
-     n=float(input("Enter the percentage student got in the entrance exam:"))
-     if n>=40:
-          entrance_system()
-     else:
+    n=float(input("Enter the percentage student got in the entrance exam:"))
+    if n>=40:
+        entrance_system()
+    else:
           print("Sorry !! But You are failed We can't admit you in our school")
 
 def check(class_):
