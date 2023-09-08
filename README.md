@@ -50,7 +50,6 @@ Before you begin, ensure you have the following:
 - MySQL database server installed and running.
 - Required Python packages (`mysql-connector-python` and `tabulate`) installed. You can install them using pip:
 
-
 ## Installation
 
 1. Clone the repository:
@@ -87,11 +86,9 @@ mysql > create table class(Reg int(20) primary key NOT NULL, Name Varchar(30) NO
    python student_management.py
    ```
 
-
 2. **Navigation**:
    - Use the numeric keys to navigate through the menu and perform different operations.
    - Follow the on-screen instructions to input data and interact with the system.
-
 
 3. **Exit**:
    - You can exit the program at any time by selecting the "Exit" option from the menu.
@@ -120,4 +117,3 @@ Contributions to this project are welcome! If you have any ideas, bug fixes, or 
 
 ## License
 This School Management System is open-source software released under the [MIT License](https://github.com/Git-Utkarsh/SMSProject/blob/main/LICENSE). You are free to use, modify, and distribute this software in accordance with the license terms.
-
