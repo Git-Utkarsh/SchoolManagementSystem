@@ -30,7 +30,100 @@ def banner_2():
                                                       __/ /                     
                                                      |___/                      
 """)
+
+def add_teacher():
+    """This Function is used to add the data to the sql database
     
+    """
+    ID = input("Enter Teacher ID :")
+    Name =input("Enter Teacher's Name:")
+    Subject = input("Enter Teacher's Subject:")
+    Phone =input("Enter Teacher's Phone Number:")
+    Salary =input("Enter Teacher's Salary:")
+    query = """INSERT INTO teacher(ID,Name,Subject,Phone,
+    Salary) VALUES({},'{}','{}','{}','{}')""".format(ID,Name,Subject,Phone,Salary)
+    cursor.execute('Select * from teacher where ID='+str(ID))
+    row = cursor.fetchall()
+    try:
+        if row == []:
+            cursor.execute(query)
+            connection.commit()
+            print("[+] Data Entered Successfully !!")
+        else:
+            print("[-] ERROR Registration number already exists in the database !!!")
+            print("Make Sure Your Registration number is unique ")
+    except:
+        print("[ERROR] \n Make sure to Enter all the required data !!!")
+
+def teacher_data():
+    cursor.execute('SELECT * FROM teacher ORDER BY ID ASC')
+    row = cursor.fetchall()
+    head = ["ID", "Name","Subject","Phone","Salary"]
+    print(tabulate(row, headers=head, tablefmt="grid"))
+
+def delete_teacher():
+    var_data_11 = int(input("Enter the teacher ID whose data you want to delete:"))
+    sql1 = "DELETE FROM teacher WHERE ID='%s'"
+    data1=(var_data_11,)
+    cursor.execute(sql1,data1)
+    connection.commit()
+    print('Deleted successfully')
+
+def teacher_search():
+    try:
+        ID = int(input("Enter the teacher ID whose data you want to Find:"))
+    except NameError:
+          print("[-] Error!! Option must be integer type")
+    cursor.execute("SELECT * FROM teacher WHERE ID='%s'",(ID,))  
+    data = cursor.fetchall()
+    if data==[]:
+         print("No data found !!")
+    else:
+        head = ["ID", "Name","Subject","Phone","Salary"]
+        print(tabulate(data, headers=head, tablefmt="grid"))
+
+
+def teachersys():
+        table = tabulate([
+        [1,"Add Teacher in Database"],
+        [2,"Show full database"],
+        [3,"Delete Record"],
+        [4,"Search Record"],
+        [5,"Back"]
+        ],['No.','Operation'],'outline')
+        print(table)
+        inp = int(input("Select option :"))
+        try:
+            if inp==1:
+                add_teacher()
+            elif inp==2:
+                teacher_data()
+            elif inp==3:
+                delete_teacher()
+            elif inp==4:
+                teacher_search()
+            elif inp==5:
+                exit()
+            else:
+                print("[-] Select Valid option !!")
+        except:
+          print("[-]Error!! Option must be integer type")           
+        
+
+def management():
+    table = tabulate([
+        [1,"Teacher Management"]
+        ],['No.','Operation'],'outline')
+    print(table)
+    try:
+        inp = int(input("Select option :"))
+        if inp==1:
+            teachersys()
+        else:
+            print("[-] Select Valid option !!")
+    except ValueError:
+        print("[-]Error!! Option must be integer type")
+
 def start():
     """
     From here the program starts
@@ -42,7 +135,7 @@ def start():
         [2,"Campus & Facility"],
         [3,"School Timings"],
         [4,"Show Fee structure"],
-        [5,"Show School Management information"],
+        [5,"School Management"],
         [6,"Entrance status"],
         [7,"Exit"]
         ],['No.','Operation'],'outline')
@@ -60,7 +153,7 @@ def start():
         elif inp==4:
                 fee_details()
         elif inp==5:
-                print("Yet to be programmed !")
+                management()
         elif inp==6:
                 while True:
                         entrance_system()
