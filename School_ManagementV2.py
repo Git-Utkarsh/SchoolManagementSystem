@@ -56,6 +56,9 @@ def add_teacher():
         print("[ERROR] \n Make sure to Enter all the required data !!!")
 
 def teacher_data():
+    """
+    Teachers data
+    """
     cursor.execute('SELECT * FROM teacher ORDER BY ID ASC')
     row = cursor.fetchall()
     head = ["ID", "Name","Subject","Phone","Salary"]
