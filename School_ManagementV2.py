@@ -65,6 +65,9 @@ def teacher_data():
     print(tabulate(row, headers=head, tablefmt="grid"))
 
 def delete_teacher():
+    """
+    delete teacher
+    """
     var_data_11 = int(input("Enter the teacher ID whose data you want to delete:"))
     sql1 = "DELETE FROM teacher WHERE ID='%s'"
     data1=(var_data_11,)
