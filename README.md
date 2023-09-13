@@ -42,7 +42,7 @@ The School Management System is a Python program designed to manage various aspe
 6. **Banner Display**:
    - Presents visually appealing banners at the start of the program to create a school-themed user interface.
 7. **Teacher Management**:
-   - A teacher management system 
+   - A teacher management system where we can add edit and remove teachers (Only in version V2)
 
 ## Prerequisites
 
