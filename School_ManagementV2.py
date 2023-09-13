@@ -1,6 +1,5 @@
-#School Management System
-import mysql.connector as sql #pip install mysql-connector-python
-from tabulate import tabulate #pip install tabulate
+import mysql.connector as sql
+from tabulate import tabulate
 connection = sql.connect(host="localhost",user="root",passwd="root",database="schooldb")
 cursor = connection.cursor()
 
