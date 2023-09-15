@@ -181,6 +181,7 @@ def time_table():
     ],["CLASS","SUMMER","WINTER"],'outline')
     print(Time)
 
+
 def marks():
     """
     This fucntion checks the marks obtained by the candidate in the entrance exam.
@@ -213,8 +214,7 @@ def admission_ava():
     """
     This fucntions checks that in a class if number of student is less than 40 
     
-    Then only admission is possible else
-    Admission will be not possible
+    Then only admission is possible
     """
     try:
         ad_check = int(input("In which class you want to get admission (1-12):"))
