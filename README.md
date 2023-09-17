@@ -1,5 +1,4 @@
 # School Management System
-
 The School Management System is a Python program designed to manage various aspects of a school, including admissions, campus facilities, school timings, fee structures, student records, and more. This system is primarily aimed at school administrators, teachers, and staff to streamline and organize school-related tasks.
 
 ![Alt text](https://img.lovepik.com/free-png/20210919/lovepik-school-png-image_400499294_wh1200.png)
