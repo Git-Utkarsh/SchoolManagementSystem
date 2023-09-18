@@ -87,7 +87,6 @@ def teacher_search():
         head = ["ID", "Name","Subject","Phone","Salary"]
         print(tabulate(data, headers=head, tablefmt="grid"))
 
-
 def teachersys():
         table = tabulate([
         [1,"Add Teacher in Database"],
